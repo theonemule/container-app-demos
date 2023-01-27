@@ -1,0 +1,47 @@
+name: dapr2
+properties:
+  configuration:
+    activeRevisionsMode: Single
+    dapr:
+      appId: dapr2
+      appPort: 5000
+      appProtocol: http
+      enableApiLogging: false
+      enabled: true
+      httpMaxRequestSize: null
+      httpReadBufferSize: null
+      logLevel: info
+    ingress:
+      allowInsecure: false
+      customDomains: null
+      exposedPort: 0
+      external: true
+      ipSecurityRestrictions: null
+      targetPort: 5000
+      traffic:
+      - latestRevision: true
+        weight: 100
+      transport: Auto
+    maxInactiveRevisions: null
+    registries: null
+    secrets: null
+  managedEnvironmentId: /subscriptions/025f9a1c-4bcf-4b7b-ba91-d3f94c7379ea/resourceGroups/blaize-container-app/providers/Microsoft.App/managedEnvironments/managedEnvironment-blaizecontainer
+  template:
+    containers:
+    - env:
+      - name: APP_PORT
+        value: '5000'
+      image: blaize/dapr2
+      name: dapr2
+      resources:
+        cpu: 0.5
+        ephemeralStorage: 1Gi
+        memory: 1Gi
+    initContainers: null
+    scale:
+      maxReplicas: 1
+      minReplicas: 1
+      rules: null
+    volumes: null
+  workloadProfileType: null
+type: Microsoft.App/containerApps
